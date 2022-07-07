@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Note</string>
+    <string name="label_day_of_week">The day of week :</string>
+    <string name="floating_button_to_add">Floating button to add</string>
+    <string name="spinner_of_days">Spinner of days</string>
+    <string name="hint_title_of_note">Title of note</string>
+    <string name="hint_description_of_note">Description of note</string>
+    <string name="priority_1">1</string>
+    <string name="priority_2">2</string>
+    <string name="priority_3">3</string>
+    <string name="save_note_button">Save Note</string>
+
+    <string-array name="days_of_week">
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+        <item>Saturday</item>
+        <item>Sunday</item>
+    </string-array>
+</resources>
