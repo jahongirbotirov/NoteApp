@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -34,6 +35,24 @@ public class MainActivity extends AppCompatActivity {
         NotesAdapter adapter = new NotesAdapter(notes);
         recyclerViewNotes.setLayoutManager(new LinearLayoutManager(this));
         recyclerViewNotes.setAdapter(adapter);
+        adapter.setOnNoteClickListener(new NotesAdapter.OnNoteClickListener() {
+            @Override
+            public void onNoteClick(int position) {
+                Toast.makeText(MainActivity.this, "Position"+position, Toast.LENGTH_SHORT).show();
+//                notes.remove(position);
+//                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onLongClick(int position) {
+                removeNote(position,adapter);
+            }
+        });
+    }
+
+    public void removeNote(int position,NotesAdapter adapter){
+        notes.remove(position);
+        adapter.notifyDataSetChanged();
     }
 
     public void onClickAddNote(View view) {
