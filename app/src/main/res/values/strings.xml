@@ -9,6 +9,7 @@
     <string name="priority_2">2</string>
     <string name="priority_3">3</string>
     <string name="save_note_button">Save Note</string>
+    <string name="fill_warning_txt">All must be filled !</string>
 
     <string-array name="days_of_week">
         <item>Monday</item>
