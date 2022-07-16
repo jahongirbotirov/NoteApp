@@ -104,12 +104,16 @@ public class MainActivity extends AppCompatActivity {
 
     private void getData(){
         notes.clear();
-        Cursor cursor = database.query(NotesContract.NotesEntry.TABLE_NAME,null,null,null,null,null,null);
+
+//        String selection = NotesContract.NotesEntry.COLUMN_PRIORITY + " < ?";
+//        String[] selectionArgs = new String[]{"2"};
+
+        Cursor cursor = database.query(NotesContract.NotesEntry.TABLE_NAME,null,null,null,null,null, NotesContract.NotesEntry.COLUMN_DAY_OF_WEEK);
         while (cursor.moveToNext()){
             @SuppressLint("Range") int id = cursor.getInt(cursor.getColumnIndex(NotesContract.NotesEntry._ID));
             @SuppressLint("Range") String title = cursor.getString(cursor.getColumnIndex(NotesContract.NotesEntry.COLUMN_TITLE));
             @SuppressLint("Range") String description = cursor.getString(cursor.getColumnIndex(NotesContract.NotesEntry.COLUMN_DESCRIPTION));
-            @SuppressLint("Range") String dayOfWeek = cursor.getString(cursor.getColumnIndex(NotesContract.NotesEntry.COLUMN_DAY_OF_WEEK));
+            @SuppressLint("Range") int dayOfWeek = cursor.getInt(cursor.getColumnIndex(NotesContract.NotesEntry.COLUMN_DAY_OF_WEEK));
             @SuppressLint("Range") int priority = cursor.getInt(cursor.getColumnIndex(NotesContract.NotesEntry.COLUMN_PRIORITY));
             Note note = new Note(id,title,description,dayOfWeek,priority);
             notes.add(note);
